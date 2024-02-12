@@ -109,17 +109,44 @@ Once your selections have been made, click the orange 'Save changes' button at t
 
 ### Test via the Amazon Lex interface
 
-At this point we have a fully functioning chatbot. Navigate to the Amazon Lex service in the AWS console to test the functionality. Once there, select the 'Chatbot' bot that the CloudFormation template created. In the menu on the left, select 'English' under 'All languages'. At the top of the screen you will see a 'Version' dropdown. Select 'Version 1' from the dropdown, as the Draft version isn't associated with our Alias and Lambda function. Confirm the Alias of 'ChatbotTestAlias' which is associated with our lambda function. Use the chat interface to test the bot. Remember that this bot leverages retrieval augmented generation and your documents to answer questions. So if you have not uploaded data that is pertinent to the questions you ask (and thus the context in your document retrieval does not answer the question), then the bot will return a response of "I don't know" or similar.
+At this point we have a fully functioning chatbot. 
+<br>
+Navigate to the Amazon Lex service in the AWS console to test the functionality. 
+<br>
+Once there, select the `Chatbot` bot that the CloudFormation template created. 
+<br>
+In the menu on the left, select `English` under `All languages`. 
+<br>
+At the top of the screen you will see a `Version` dropdown. 
+<br>
+Select `Version 1` from the dropdown, as the Draft version isn't associated with our Alias and Lambda function. 
+<br>
+Confirm the Alias of `ChatbotTestAlias` which is associated with our lambda function. Use the chat interface to test the bot. 
+<br>
+Remember that this bot leverages retrieval augmented generation and your documents to answer questions. 
+<br>
+So if you have not uploaded data that is pertinent to the questions you ask (and thus the context in your document retrieval does not answer the question), then the bot will return a response of "I don't know" or similar.
 
-Also, the example includes a Lex intent to reset a password. So try asking a question like, "I forgot my password, can you help?". This intent will be served through Lex without the need to interact with the LLM via the fallback intent. This is useful when you want to serve a fixed set of user intents, independent of using Generative AI.
+Also, the example includes a Lex intent to reset a password. 
+<br>
+So try asking a question like, "I forgot my password, can you help?". 
+<br>
+This intent will be served through Lex without the need to interact with the LLM via the fallback intent. 
+<br>
+This is useful when you want to serve a fixed set of user intents, independent of using Generative AI.
 
-![arch](./images/leximage.png)
+![leximage](https://github.com/cupumelody/build-a-chatbot/assets/145847069/caf58c66-7e9b-42fd-91c0-14a472f591ed)
 
-### Cleanup
 
-When you're done with this bot, first delete all files in the WebDataS3Bucket that was created for this sample. Then you can delete all associated AWS resources via this command:
+## Cleanup
+
+First delete all files in the WebDataS3Bucket that was created for this sample. 
+<br>
+Then you can delete all associated AWS resources via this command:
 
 ```bash
 bash ./helper.sh cf-delete-stack
  …
 ```
+
+👍
